@@ -8,4 +8,5 @@ Client Server MT5 RSI Python Bot
 - main.py reflects the LOTS, TIMEFRAME, SYMBOL
 - orders.py configure CANDLES_BETWEEN_OPERATIONS, SL, TP, RSI_TOP, RSI_BOTTOM
 5. Add the new EA or RSI_client.ex5 (compiled version) to your Chart
-6. Bot should start if you see on the Journal a similar line ```2023.02.21 22:33:05.718	Expert RSI_client (EURUSD,M1) loaded successfully```
+6. Bot should start if you see on the Journal on Client side ```2023.02.21 22:33:05.718	Expert RSI_client (EURUSD,M1) loaded successfully```
+7. And on the Server Side ```[INFO]  Orders running```
