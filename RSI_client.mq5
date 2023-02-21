@@ -4,8 +4,8 @@
 //|                                      https://www.algorithmic.one |
 //+------------------------------------------------------------------+
 #property copyright "Copyright 2023, Algorithmic, GMBH"
-##property link      "https://www.algorithmic.one"
-##property version   "1.00"
+#property link      "https://www.algorithmic.one"
+#property version   "1.00"
 /* Important - https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes */
 
 #define PORT 8688
