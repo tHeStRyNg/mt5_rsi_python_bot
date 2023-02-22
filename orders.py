@@ -2,12 +2,12 @@ import MetaTrader5 as mt5
 import datetime
 
 
-CANDLES_BETWEEN_OPERATIONS = 5
-STOPLOSS = 50
+CANDLES_BETWEEN_OPERATIONS = 10
+STOPLOSS = 200
 TAKEPROFIT = 16
 
-RSI_TOP = 70
-RSI_BOTTOM = 30
+RSI_TOP = 65
+RSI_BOTTOM = 35
 
 
 def open_position(market: str, lotage: float, type_op):
