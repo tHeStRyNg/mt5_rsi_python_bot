@@ -3,8 +3,8 @@ import datetime
 
 
 CANDLES_BETWEEN_OPERATIONS = 5
-STOPLOSS = 100
-TAKEPROFIT = 50
+STOPLOSS = 50
+TAKEPROFIT = 16
 
 RSI_TOP = 70
 RSI_BOTTOM = 30
@@ -38,7 +38,7 @@ def open_position(market: str, lotage: float, type_op):
         "tp": tp,
         "deviation": deviation,
         "magic": 234000,
-        "comment": "python script open",
+        "comment": "RSI PYTHON CLIENT",
         "type_time": mt5.ORDER_TIME_GTC,
         "type_filling": mt5.ORDER_FILLING_FOK,
     }
@@ -64,17 +64,17 @@ def thread_orders(stop_event, data, trading_data):
     while data["RSI"] is None:
         pass
     
-    print("[INFO]\tOrders running")
+    print("[INFO]\tTHREAD - ORDERS STARTED")
     
     while not stop_event.is_set():
         cur_time = int((datetime.datetime.utcnow()- ep).total_seconds())
         
         if data["RSI"][0] < RSI_BOTTOM \
-        and cur_time > last_operation_time+trading_data["time_period"]*CANDLES_BETWEEN_OPERATIONS: # Open buy
+        and cur_time > last_operation_time+trading_data["time_period"]*CANDLES_BETWEEN_OPERATIONS: # OPEN BUY
             last_operation_time = cur_time
             open_position(trading_data["market"], trading_data["lotage"], mt5.ORDER_TYPE_BUY)
 
         elif data["RSI"][0] > RSI_TOP \
-        and cur_time > last_operation_time+trading_data["time_period"]*CANDLES_BETWEEN_OPERATIONS: # Open sell
+        and cur_time > last_operation_time+trading_data["time_period"]*CANDLES_BETWEEN_OPERATIONS: # OPEN SELL
             last_operation_time = cur_time
             open_position(trading_data["market"], trading_data["lotage"], mt5.ORDER_TYPE_SELL)

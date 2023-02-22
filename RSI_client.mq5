@@ -6,7 +6,8 @@
 #property copyright "Copyright 2023, Algorithmic, GMBH"
 #property link      "https://www.algorithmic.one"
 #property version   "1.00"
-/* Important - https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes */
+
+/* IMPORTANT ERROR CODES - https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes */
 
 #define PORT 8688
 #define ADDR "localhost"
@@ -49,11 +50,11 @@ void OnDeinit(const int reason) {
 
 
 void OnTick() {
-   // Loading the macd values
+   // Loading the rsi values
    CopyBuffer(rsi_h, 0, 0, 2, rsi);
       
    // Sending RSI data
-   Print("[INFO]\tSending RSI");
+   Print("[INFO]\tSending RSI Values");
    string msg;
    StringConcatenate(msg, rsi[0], ",", rsi[1]);
    
